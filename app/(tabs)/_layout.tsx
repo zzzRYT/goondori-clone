@@ -29,7 +29,9 @@ export default function TabLayout() {
   ];
 
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: 'brown' }}>
+    <Tabs
+      screenOptions={{ tabBarActiveTintColor: 'brown', headerShown: false }}
+    >
       {TabItems.map((item) => (
         <Tabs.Screen
           key={item.name}
