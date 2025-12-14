@@ -7,4 +7,63 @@ module.exports = defineConfig([
   {
     ignores: ['dist/*'],
   },
+  {
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
+    },
+    rules: {
+      'import/order': [
+        'error',
+        {
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'object',
+            'type',
+          ],
+          pathGroups: [
+            {
+              pattern: 'react',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: '@/**',
+              group: 'internal',
+            },
+            {
+              pattern: '@app/**',
+              group: 'internal',
+            },
+            {
+              pattern: '@features/**',
+              group: 'internal',
+            },
+            {
+              pattern: '@components/**',
+              group: 'internal',
+            },
+            {
+              pattern: '@utils/**',
+              group: 'internal',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['react'],
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
+    },
+  },
 ]);

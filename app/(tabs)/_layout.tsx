@@ -1,6 +1,7 @@
+import { ComponentProps } from 'react';
+
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
-import { ComponentProps } from 'react';
 
 type Icon = ComponentProps<typeof FontAwesome>['name'];
 

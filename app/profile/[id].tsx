@@ -1,7 +1,8 @@
-import ProfileHeader from '@/components/header/ProfileHeader';
-import ProfileDetail from '@/features/profile/ui/Profile';
 import { useLocalSearchParams } from 'expo-router';
 import { View } from 'react-native';
+
+import ProfileHeader from '@/components/header/ProfileHeader';
+import ProfileDetail from '@/features/profile/ui/Profile';
 
 export default function SoldierIdScreen() {
   const params = useLocalSearchParams<{ id: string }>();

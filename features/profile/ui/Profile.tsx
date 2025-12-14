@@ -1,8 +1,9 @@
-import MainProgress from '@/components/progress/MainProgress';
-import DisplayAd from '@/features/ad/DisplayAd';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Image } from 'expo-image';
 import { Text, View } from 'react-native';
+
+import MainProgress from '@/components/progress/MainProgress';
+import DisplayAd from '@/features/ad/DisplayAd';
 
 function ItemDetailRow({ label, value }: { label: string; value: string }) {
   return (
@@ -13,7 +14,7 @@ function ItemDetailRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-function ItemDetailGrid({ label, value }: { label: string; value: string }) {
+function ItemDetailCol({ label, value }: { label: string; value: string }) {
   return (
     <View className="flex flex-col gap-2 items-center">
       <Text>{label}</Text>
@@ -54,15 +55,15 @@ export default function ProfileDetail({ id }: ProfileDetailProps) {
       {/* progress 영역*/}
       <View className="bg-blue-600 py-6 px-4 my-4">
         <Text className="font-bold text-white">복무 진행률</Text>
-        <MainProgress percent={65.4321} />
+        <MainProgress percent={'65.4321'} />
         <View className="flex flex-row w-full gap-4 mt-4">
           <View className="flex-1">
             <Text className="text-white">다음 승급</Text>
-            <MainProgress percent={30.1234} />
+            <MainProgress percent={'30.1234'} />
           </View>
           <View className="flex-1">
             <Text className="text-white">다음 휴가</Text>
-            <MainProgress percent={80.5678} />
+            <MainProgress percent={'80.5678'} />
           </View>
         </View>
       </View>
@@ -70,14 +71,14 @@ export default function ProfileDetail({ id }: ProfileDetailProps) {
       <View className="p-4">
         <View className="flex flex-col justify-center items-center gap-4  w-full px-10">
           <View className="flex flex-row gap-3 justify-between w-full">
-            <ItemDetailGrid label="549" value="전체 복무일" />
-            <ItemDetailGrid label="549" value="현재 복무일" />
-            <ItemDetailGrid label="0" value="남은 복무일" />
+            <ItemDetailCol label="549" value="전체 복무일" />
+            <ItemDetailCol label="549" value="현재 복무일" />
+            <ItemDetailCol label="0" value="남은 복무일" />
           </View>
           <View className="flex flex-row gap-3 justify-between w-full">
-            <ItemDetailGrid label="0" value="계급 진급일" />
-            <ItemDetailGrid label="0" value="남은 일과일" />
-            <ItemDetailGrid label="-" value="다음 휴가일" />
+            <ItemDetailCol label="0" value="계급 진급일" />
+            <ItemDetailCol label="0" value="남은 일과일" />
+            <ItemDetailCol label="-" value="다음 휴가일" />
           </View>
         </View>
       </View>

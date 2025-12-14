@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 
 interface MainProgressProps {
-  percent: number;
+  percent: string;
 }
 
 export default function MainProgress({ percent }: MainProgressProps) {
