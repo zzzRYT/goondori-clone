@@ -28,6 +28,22 @@ export function getDayDifference(startDate: string, endDate: string): number {
 }
 
 /**
+ * 두 날짜 사이의 정확한 일수(소수점 포함) 계산
+ * 시작 날짜는 'YYYY-MM-DD' 문자열, 종료 날짜는 Date 객체
+ * @param startDate 'YYYY-MM-DD'
+ * @param endDate Date 객체
+ * @returns 소수점 포함 일수
+ */
+export function getPreciseDayDifference(startDate: string, endDate: Date): number {
+  const oneDay = 1000 * 60 * 60 * 24;
+  const start = parseUTCDate(startDate); // 시작 날짜는 UTC 자정으로 고정
+
+  // 종료 날짜는 전달받은 Date 객체의 시간까지 포함
+  const diffInTime = endDate.getTime() - start.getTime();
+  return diffInTime / oneDay;
+}
+
+/**
  * 현재 날짜로 부터 얼마나 떨어졌는지 일수 계산
  *
  * @param targetDate 'YYYY-MM-DD'

@@ -4,7 +4,12 @@ import { Text, View } from 'react-native';
 
 import { GetUserDto } from '@/api/user/type';
 import MainProgress from '@/components/progress/MainProgress';
-import { formatDate, getDayDifference, getDaysFromToday } from '@/utils/day';
+import {
+  formatDate,
+  getDayDifference,
+  getDaysFromToday,
+  getPreciseDayDifference,
+} from '@/utils/day';
 
 export default function MilitaryCalculator({
   enlistmentDate,
@@ -29,10 +34,12 @@ export default function MilitaryCalculator({
   };
 
   const currentTime = useCurrentTime();
-  const todayString = currentTime.toISOString().split('T')[0];
 
   const totalServiceDays = getDayDifference(enlistmentDate, dischargeDate);
-  const elapsedServiceDays = getDayDifference(enlistmentDate, todayString);
+  const elapsedServiceDays = getPreciseDayDifference(
+    enlistmentDate,
+    currentTime
+  );
   const percent =
     totalServiceDays > 0
       ? Math.min((elapsedServiceDays / totalServiceDays) * 100, 100)
