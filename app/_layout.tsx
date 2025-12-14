@@ -1,4 +1,3 @@
-import Header from '@/components/layout/Header';
 import '@/global.css';
 import { Stack } from 'expo-router';
 import mobileAds from 'react-native-google-mobile-ads';
@@ -13,12 +12,10 @@ export default function RootLayout() {
 
   return (
     <SafeAreaView className="flex-1">
-      <Header />
       <Stack>
-        <Stack.Screen
-          name="(tabs)"
-          options={{ title: 'index', headerShown: false }}
-        />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="profile/[id]" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
     </SafeAreaView>
   );
