@@ -1,24 +1,32 @@
+import { useEffect, useState } from 'react';
+
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link } from 'expo-router';
-import { Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 
-import { Profile } from '@/features/profile/type';
+import USER_API from '@/api/user';
+import { GetUserDto } from '@/api/user/type';
 import ProfileCard from '@/features/profile/ui/Card';
 
 import MilitaryCalculator from './Calculator';
 
-const mockSelectedUser: Profile = {
-  id: '12344',
-  name: '홍길동',
-  militaryBranch: '육군',
-  militaryType: '병사',
-  imageUrl: 'https://avatars.githubusercontent.com/u/9919?s=200&v=4',
-  enlistmentDate: new Date('2025-10-15T00:00:00.000Z'),
-  dischargeDate: new Date('2027-08-09T00:00:00.000Z'),
-  isRepresentative: true,
-};
-
 export default function DateCalculatorSection() {
+  const [userList, setUserList] = useState<GetUserDto[]>([]);
+
+  const getUserList = async () => {
+    try {
+      const users = await USER_API.getList();
+      console.log('users', users);
+      setUserList(users.data);
+    } catch (error) {
+      console.error('Failed to fetch user list:', error);
+    }
+  };
+
+  useEffect(() => {
+    getUserList();
+  }, []);
+
   return (
     <View className="my-4">
       {/* 헤더 */}
@@ -30,17 +38,26 @@ export default function DateCalculatorSection() {
         </View>
       </View>
       {/* 계산기 + 프로필 section */}
-      <Link
-        href={{
-          pathname: `/profile/[id]`,
-          params: { id: '12344' },
-        }}
-      >
-        <View className="p-4 rounded-lg bg-blue-600 w-full">
-          <ProfileCard {...mockSelectedUser} />
-          <MilitaryCalculator {...mockSelectedUser} />
-        </View>
-      </Link>
+      <FlatList
+        data={userList}
+        keyExtractor={(item) => item.id}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        ItemSeparatorComponent={() => <View className="w-4" />}
+        renderItem={({ item }) => (
+          <Link
+            href={{
+              pathname: `/profile/[id]`,
+              params: { id: item.id },
+            }}
+          >
+            <View className="p-4 rounded-lg bg-blue-600 w-80">
+              <ProfileCard {...item} />
+              <MilitaryCalculator {...item} />
+            </View>
+          </Link>
+        )}
+      />
     </View>
   );
 }

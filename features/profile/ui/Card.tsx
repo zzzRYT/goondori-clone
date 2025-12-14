@@ -3,13 +3,13 @@ import { Image } from 'expo-image';
 import { Link } from 'expo-router';
 import { Text, View } from 'react-native';
 
-import { Profile } from '@/features/profile/type';
+import { GetUserDto } from '@/api/user/type';
 
 export default function ProfileCard({
   name,
   imageUrl,
   isRepresentative,
-}: Profile) {
+}: GetUserDto) {
   return (
     <>
       <View className="flex flex-row gap-4">

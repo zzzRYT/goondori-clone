@@ -1,0 +1,58 @@
+import { GetUserDto } from '@/api/user/type';
+
+export const mockUsers: GetUserDto[] = [
+  {
+    id: 'user-001',
+    name: '김태현',
+    militaryBranch: '육군',
+    militaryType: '병사',
+    enlistmentDate: '2025-07-05',
+    dischargeDate: '2027-07-04',
+    theme: 'blue',
+    imageUrl: 'https://example.com/images/kim.jpg',
+    isRepresentative: true,
+  },
+  {
+    id: 'user-002',
+    name: '박지훈',
+    militaryBranch: '공군',
+    militaryType: '장교',
+    enlistmentDate: '2024-12-01',
+    dischargeDate: '2026-06-30',
+    theme: 'default',
+    imageUrl: undefined,
+    isRepresentative: false,
+  },
+  {
+    id: 'user-003',
+    name: '이서준',
+    militaryBranch: '해군',
+    militaryType: '부사관',
+    enlistmentDate: '2022-11-15',
+    dischargeDate: '2026-11-14',
+    theme: 'green',
+    imageUrl: 'https://example.com/images/lee.jpg',
+    isRepresentative: false,
+  },
+  {
+    id: 'user-004',
+    name: '최민준',
+    militaryBranch: '사회복무요원',
+    militaryType: '병사', // 사회복무요원은 일반적으로 '병사'에 준하여 처리
+    enlistmentDate: '2024-09-20',
+    dischargeDate: '2026-06-19',
+    theme: 'yellow',
+    isRepresentative: false,
+  },
+  {
+    id: 'user-005',
+    name: '정하윤',
+    militaryBranch: '해병대',
+    militaryType: '병사',
+    enlistmentDate: '2025-02-10',
+    dischargeDate: '2026-11-09',
+    theme: 'red',
+    imageUrl: 'https://example.com/images/jung.jpg',
+    isRepresentative: false,
+  },
+];
