@@ -13,7 +13,7 @@ interface Item {
 
 export default function TabLayout() {
   const TabItems: Item[] = [
-    { name: 'home', title: '홈', icon: 'home' },
+    { name: 'index', title: '홈', icon: 'home' },
     { name: 'vacation', title: '휴가', icon: 'calendar' },
     {
       name: 'community',

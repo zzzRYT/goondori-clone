@@ -1,4 +1,5 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Link } from 'expo-router';
 import { Text, View } from 'react-native';
 
 export default function HomeHeader() {
@@ -10,7 +11,9 @@ export default function HomeHeader() {
         </Text>
         <Text className="text-xl font-bold">군돌이</Text>
       </View>
-      <FontAwesome name="cog" size={30} color="black" />
+      <Link href="/setting">
+        <FontAwesome name="cog" size={30} color="black" />
+      </Link>
     </View>
   );
 }
