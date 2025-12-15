@@ -29,6 +29,11 @@ export type GetUserRequestParams = {
   id: string;
 };
 
-export type GetUserDto = {
+export type UserWithIdDto = {
   id: string;
 } & UserDto;
+
+export type GetUserDto = {
+  data: UserWithIdDto[];
+  totalCount: number;
+};

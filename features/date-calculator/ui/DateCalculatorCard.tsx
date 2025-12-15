@@ -5,13 +5,13 @@ import { Link } from 'expo-router';
 import { FlatList, Text, View } from 'react-native';
 
 import USER_API from '@/api/user';
-import { GetUserDto } from '@/api/user/type';
+import { UserWithIdDto } from '@/api/user/type';
 import ProfileCard from '@/features/profile/ui/Card';
 
 import MilitaryCalculator from './Calculator';
 
 export default function DateCalculatorSection() {
-  const [userList, setUserList] = useState<GetUserDto[]>([]);
+  const [userList, setUserList] = useState<UserWithIdDto[]>([]);
 
   const getUserList = async () => {
     try {

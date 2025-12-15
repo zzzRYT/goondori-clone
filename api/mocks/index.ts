@@ -1,6 +1,7 @@
 // src/api/mocks/index.js
 import MockAdapter from 'axios-mock-adapter';
 
+import { setupAuthMocks } from './authHandlers';
 import { setupUserMocks } from './userHandlers';
 
 /**
@@ -9,6 +10,7 @@ import { setupUserMocks } from './userHandlers';
  */
 export const setupAllMocks = (mock: MockAdapter) => {
   setupUserMocks(mock);
+  setupAuthMocks(mock);
 
   mock.onAny().passThrough();
 };

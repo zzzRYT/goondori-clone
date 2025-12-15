@@ -1,6 +1,6 @@
-import { GetUserDto } from '@/api/user/type';
+import { UserWithIdDto } from '@/api/user/type';
 
-export const mockUsers: GetUserDto[] = [
+export const mockUsers: UserWithIdDto[] = [
   {
     id: 'user-001',
     name: '김태현',

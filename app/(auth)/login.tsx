@@ -1,14 +1,11 @@
-import { useContext } from 'react';
-
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useRouter } from 'expo-router';
-import { Button, Text, TouchableHighlight, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AuthContext } from '@/lib/config/authProvider';
+import LoginForm from '@/features/auth/ui/login';
 
 export default function LoginScreen() {
-  const authContext = useContext(AuthContext);
   const router = useRouter();
 
   const handleBack = () => {
@@ -36,14 +33,8 @@ export default function LoginScreen() {
             <Text className="text-3xl font-bold text-green-500">군돌이</Text>
           </View>
         </View>
-        <View className="flex-1 p-3 w-full">
-          <TouchableHighlight className="p-2 bg-green-500 color-white rounded-xl w-full">
-            <Button
-              title="로그인"
-              onPress={() => authContext.logIn()}
-              color="#ffffff"
-            />
-          </TouchableHighlight>
+        <View className="flex-1 w-full p-4">
+          <LoginForm />
         </View>
       </View>
     </SafeAreaView>

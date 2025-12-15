@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Text, View } from 'react-native';
 
-import { GetUserDto } from '@/api/user/type';
+import { UserWithIdDto } from '@/api/user/type';
 import MainProgress from '@/components/progress/MainProgress';
 import {
   formatDate,
@@ -14,7 +14,7 @@ import {
 export default function MilitaryCalculator({
   enlistmentDate,
   dischargeDate,
-}: GetUserDto) {
+}: UserWithIdDto) {
   const endDate = formatDate(dischargeDate);
 
   const useCurrentTime = (interval = 100) => {
